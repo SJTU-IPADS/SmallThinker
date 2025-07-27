@@ -41,9 +41,8 @@ SmallThinker is a family of on-device native Mixture-of-Experts (MoE) language m
 | **Activation Function** | ReGLU | ReGLU |
 
 </div>
-## 3. Evaluation Results
 
-#### Instruction model evaluation results
+## 3. Evaluation Results
 
 
 
