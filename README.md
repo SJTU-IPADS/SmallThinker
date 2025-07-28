@@ -1,7 +1,7 @@
 # SmallThinker
 
 <p align="center">
-       &nbsp&nbsp🤗 <a href="https://huggingface.co/PowerInfer">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://modelscope.cn/organization/PowerInfer">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://modelscope.cn/organization/PowerInfer">Arxiv</a> &nbsp&nbsp 
+       &nbsp&nbsp🤗 <a href="https://huggingface.co/PowerInfer">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://modelscope.cn/organization/PowerInfer">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="smallthinker-technical-report.pdf">Technical Report</a> &nbsp&nbsp 
 </p>
 
 ## 1. Model Introduction
