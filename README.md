@@ -42,18 +42,57 @@ SmallThinker is a family of on-device native Mixture-of-Experts (MoE) language m
 
 </div>
 
-## 3. Evaluation Results
-
-
-
 
 ## 4. Deployment
 
 
-## 5. Model Usage
+### Transformers
 
-### Chat Completion
+`transformers==4.53.3` is required, we are actively working to support the latest version.
+The following contains a code snippet illustrating how to use the model generate content based on given inputs.
 
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+
+path = "PowerInfer/SmallThinker-21BA3B-Instruct"
+device = "cuda"
+
+tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained(path, torch_dtype=torch.bfloat16, device_map=device, trust_remote_code=True)
+
+messages = [
+    {"role": "user", "content": "Give me a short introduction to large language model."},
+]
+model_inputs = tokenizer.apply_chat_template(messages, return_tensors="pt", add_generation_prompt=True).to(device)
+
+model_outputs = model.generate(
+    model_inputs,
+    do_sample=True,
+    max_new_tokens=1024
+)
+
+output_token_ids = [
+    model_outputs[i][len(model_inputs[i]):] for i in range(len(model_inputs))
+]
+
+responses = tokenizer.batch_decode(output_token_ids, skip_special_tokens=True)[0]
+print(responses)
+
+```
+
+### ModelScope
+
+`ModelScope` adopts Python API similar to (though not entirely identical to) `Transformers`. For basic usage, simply modify the first line of the above code as follows:
+
+```python
+from modelscope import AutoModelForCausalLM, AutoTokenizer
+```
+
+## Statement
+- Due to the constraints of its model size and the limitations of its training data, its responses may contain factual inaccuracies, biases, or outdated information.
+- Users bear full responsibility for independently evaluating and verifying the accuracy and appropriateness of all generated content.
+- SmallThinker does not possess genuine comprehension or consciousness and cannot express personal opinions or value judgments.
 
 ---
 
